@@ -1,0 +1,26 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "ignorePatterns": ["**/build/*", "**/logs/*"],
+  "rules": {
+    "no-unused-vars": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-console": 0
+  }
+}

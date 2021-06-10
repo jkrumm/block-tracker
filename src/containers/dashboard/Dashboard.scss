@@ -1,0 +1,29 @@
+.dashboard {
+  display: flex;
+  flex-wrap: nowrap;
+
+  > div:first-of-type {
+    width: 40%;
+    margin-right: 30px;
+
+    > div {
+      margin-bottom: 30px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  > div:last-of-type {
+    width: calc(60% - 30px);
+    min-height: 100%;
+    display: block;
+
+    > div, > div > div {
+      height: 100%;
+      min-height: 100%;
+      display: block;
+    }
+  }
+}

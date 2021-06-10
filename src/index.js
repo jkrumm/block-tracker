@@ -1,7 +1,6 @@
-import React from 'react';
-import { Router } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import { Router } from "react-router-dom";
+import ReactDOM from "react-dom";
 
 // BlueprintJS
 import { FocusStyleManager } from "@blueprintjs/core";
@@ -12,15 +11,16 @@ import "@blueprintjs/select/lib/css/blueprint-select.css";
 import "@blueprintjs/table/lib/css/table.css";
 import "normalize.css/normalize.css";
 import "./index.scss";
-import {createBrowserHistory} from "history";
+import { createBrowserHistory } from "history";
+import App from "./App";
 
 const history = createBrowserHistory();
 
 ReactDOM.render(
-    <Router history={history}>
-        <App />
-    </Router>,
-    document.getElementById('root')
-)
+  <Router history={history}>
+    <App />
+  </Router>,
+  document.getElementById("root")
+);
 
 FocusStyleManager.onlyShowFocusOnTabs();
