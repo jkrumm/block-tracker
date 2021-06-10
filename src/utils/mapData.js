@@ -16,7 +16,7 @@ export default function mapData(data) {
     item.updates = item.updates.sort(sorter);
     const latest = item.updates.pop();
     mappedData[latest.type.toString()].push({ ...item });
-    mappedData.all.push({ ...item, ...latest });
+    mappedData.all.push({ ...item, ...latest, show: false });
   });
 
   /*

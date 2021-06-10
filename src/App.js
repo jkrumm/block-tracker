@@ -107,6 +107,7 @@ export default withRouter(function App({ location }) {
       default:
         setHeadline("Dashboard");
     }
+    console.log("mappedData", mappedData);
   }, [location.pathname]);
 
   return (
