@@ -1,0 +1,33 @@
+@import "./variables.scss";
+
+body {
+  margin: 0;
+  background-color: $pt-dark-app-background-color;
+  overflow: hidden;
+  font-family: $pt-font-family;
+  font-size: 15px;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+  min-width: 1000px;
+}
+
+main {
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 24px;
+  min-width: 1000px;
+}
+
+footer {
+  background-color: $dark-gray5;
+  border-top: 1px solid $dark-gray1;
+  position: fixed;
+  padding: 7px 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  min-width: 1000px;
+}
