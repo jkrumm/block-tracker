@@ -7,8 +7,9 @@ import Account from "./containers/account/Account";
 import "./App.scss";
 import Header from "./components/header/Header";
 import Headline from "./components/headline/Headline";
+import mapData from "./utils/mapData";
 
-const data = [
+const dataMock = [
   {
     id: 1,
     clientId: 12,
@@ -20,16 +21,16 @@ const data = [
         longitude: -73.74235291674297,
       },
       {
-        type: "moving",
-        date: new Date("2021-07-03T03:24:00"),
-        latitude: 39.84400567315728,
-        longitude: -75.14513784491164,
-      },
-      {
         type: "arrived",
         date: new Date("2021-08-03T03:24:00"),
         latitude: 38.980497937436745,
         longitude: -77.12940425855089,
+      },
+      {
+        type: "moving",
+        date: new Date("2021-07-03T03:24:00"),
+        latitude: 39.84400567315728,
+        longitude: -75.14513784491164,
       },
     ],
   },
@@ -89,6 +90,8 @@ const data = [
   },
 ];
 
+const mappedData = mapData(dataMock);
+
 export default withRouter(function App({ location }) {
   const [headline, setHeadline] = useState("/");
 
@@ -105,6 +108,7 @@ export default withRouter(function App({ location }) {
       default:
         setHeadline("Dashboard");
     }
+    console.log(mappedData);
   }, [location.pathname]);
 
   return (
@@ -114,7 +118,7 @@ export default withRouter(function App({ location }) {
         <Headline headline={headline} />
         <Switch>
           <Route path="/" exact>
-            <Dashboard />
+            <Dashboard data={mappedData} />
           </Route>
           <Route path="/add">
             <Add />

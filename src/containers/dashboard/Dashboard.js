@@ -1,25 +1,28 @@
 import React from "react";
 import "./Dashboard.scss";
-import { ELEVATION_1 } from "@blueprintjs/core/lib/esnext/common/classes";
 import Card from "../../components/card/Card";
+import CardList from "../../components/card/CardList";
 
-export default function Dashboard() {
+export default function Dashboard(props) {
+  const { data } = props;
+  console.log(data);
+
   return (
     <div className="dashboard">
       <div>
         <div>
           <Card heading="On Hold" icon="pause" intent="danger">
-            Test
+            <CardList list={data.initiated} />
           </Card>
         </div>
         <div>
           <Card heading="Moving" icon="play" intent="warning">
-            Test
+            <CardList list={data.moving} />
           </Card>
         </div>
         <div>
           <Card heading="Arrived" icon="tick" intent="success">
-            Test
+            <CardList list={data.arrived} />
           </Card>
         </div>
       </div>

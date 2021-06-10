@@ -1,6 +1,6 @@
 @import "../../variables";
 
-.card-wrapper {
+/* .card-wrapper {
   display: flex;
   margin: 20px;
   width: calc(100% - 40px);
@@ -23,7 +23,7 @@
       }
     }
   }
-}
+} */
 
 .card {
   flex-grow: 1;
@@ -90,23 +90,6 @@
 
     .bp3-tab-list {
       float: right;
-    }
-  }
-}
-
-.card-chart-small {
-  width: 98%;
-  height: 98%;
-
-  .bp3-card {
-    padding: 0;
-
-    > .chart {
-      position: relative;
-      top: 41px;
-      left: 0;
-      height: calc(100% - 42px);
-      // width: calc(100% + 39px);
     }
   }
 }
