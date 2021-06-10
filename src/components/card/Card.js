@@ -4,10 +4,10 @@ import "./Card.scss";
 import {} from "@blueprintjs/core/lib/esnext/common/classes";
 
 export default function Card(props) {
-  const { heading, icon, intent, children } = props;
+  const { heading, icon, intent, padding, children } = props;
 
   return (
-    <div className="card">
+    <div className={padding ? "card" : "card card-no-padding"}>
       <CardBlueprint elevation="1">
         <div className={`card-heading ${intent}`}>
           <Icon icon={icon} className="headline-icon" iconSize={22} />

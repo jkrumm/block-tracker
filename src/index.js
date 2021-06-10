@@ -16,6 +16,8 @@ import App from "./App";
 
 const history = createBrowserHistory();
 
+require("dotenv").config();
+
 ReactDOM.render(
   <Router history={history}>
     <App />

@@ -2,11 +2,10 @@ import React from "react";
 import "./Dashboard.scss";
 import Card from "../../components/card/Card";
 import CardList from "../../components/card/CardList";
+import MarkerInfoWindow from "../../components/map/MarkerInfoWindow";
 
 export default function Dashboard(props) {
   const { data } = props;
-  console.log(data);
-
   return (
     <div className="dashboard">
       <div>
@@ -21,13 +20,15 @@ export default function Dashboard(props) {
           </Card>
         </div>
         <div>
-          <Card heading="Arrived" icon="tick" intent="success">
+          <Card heading="Arrived" icon="tick" intent="success" padding={false}>
             <CardList list={data.arrived} />
           </Card>
         </div>
       </div>
       <div>
-        <Card>Test</Card>
+        <Card heading="Map" icon="map">
+          <MarkerInfoWindow places={data.all} />
+        </Card>
       </div>
     </div>
   );

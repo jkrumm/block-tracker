@@ -9,14 +9,29 @@ export default function mapData(data) {
     initiated: [],
     moving: [],
     arrived: [],
+    all: [],
   };
 
   data.forEach((item) => {
     item.updates = item.updates.sort(sorter);
-    mappedData[item.updates.pop().type.toString()].push(item);
+    const latest = item.updates.pop();
+    mappedData[latest.type.toString()].push({ ...item });
+    mappedData.all.push({ ...item, ...latest });
   });
 
-  console.log(data);
-  console.log(mappedData);
+  /*
+  var GEOCODING =
+    "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+    position.coords.latitude +
+    "%2C" +
+    position.coords.longitude +
+    "&language=en" +
+    "&key=" +
+    process.env.MAPS_API_KEY;
+
+  $.getJSON(GEOCODING).done(function (location) {
+    console.log(location);
+  }); */
+
   return mappedData;
 }

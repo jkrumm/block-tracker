@@ -97,7 +97,6 @@ export default withRouter(function App({ location }) {
 
   useEffect(() => {
     const { pathname } = location;
-    console.log("New path:", pathname.toString());
     switch (pathname) {
       case "/add":
         setHeadline("Add Tracker");
@@ -108,7 +107,6 @@ export default withRouter(function App({ location }) {
       default:
         setHeadline("Dashboard");
     }
-    console.log(mappedData);
   }, [location.pathname]);
 
   return (
