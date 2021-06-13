@@ -2,7 +2,8 @@ import React from "react";
 import "./Dashboard.scss";
 import Card from "../../components/card/Card";
 import CardList from "../../components/card/CardList";
-import MarkerInfoWindow from "../../components/map/MarkerInfoWindow";
+import MarkerInfoWindow from "../../components/googleMap/MarkerInfoWindow";
+import Map from "../../components/map/Map";
 
 export default function Dashboard(props) {
   const { data } = props;
@@ -27,7 +28,7 @@ export default function Dashboard(props) {
       </div>
       <div>
         <Card heading="Map" icon="map">
-          <MarkerInfoWindow places={data.all} />
+          <Map />
         </Card>
       </div>
     </div>

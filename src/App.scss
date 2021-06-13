@@ -3,10 +3,12 @@
 body {
   margin: 0;
   background-color: $pt-dark-app-background-color;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   font-family: $pt-font-family;
   font-size: 15px;
   min-width: 1350px;
+  padding-bottom: 50px;
 }
 
 main {

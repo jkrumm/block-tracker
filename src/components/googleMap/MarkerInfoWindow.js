@@ -4,9 +4,7 @@ import React, { Component } from "react";
 // examples:
 import GoogleMap from "./GoogleMap";
 
-// consts: [34.0522, -118.2437]
-import LOS_ANGELES_CENTER from "../../constants/la_center";
-import GoogleMapStyle from "./GoogleMapStyle";
+import USA_CENTER from "../../constants/usa_center";
 
 // InfoWindow component
 const InfoWindow = (props) => {
@@ -94,7 +92,7 @@ class MarkerInfoWindow extends Component {
         {places.length > 0 && (
           <GoogleMap
             defaultZoom={4}
-            defaultCenter={LOS_ANGELES_CENTER}
+            defaultCenter={USA_CENTER}
             bootstrapURLKeys={{
               key: process.env.REACT_APP_MAPS_API_KEY,
             }}
