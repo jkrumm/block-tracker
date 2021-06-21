@@ -1,46 +1,15 @@
 import * as React from "react";
 import { useState } from "react";
-import MapGL, {
-  Popup,
-  NavigationControl,
-  FullscreenControl,
-  ScaleControl,
-  GeolocateControl,
-} from "react-map-gl";
+import MapGL from "react-map-gl";
+import { useHistory } from "react-router-dom";
 
-import ControlPanel from "./control-panel";
 import Pins from "./pins";
-import CityInfo from "./city-info";
-
-import CITIES from "./cities.json";
 
 const TOKEN = process.env.REACT_APP_MAPBOX_API_KEY;
 
-const geolocateStyle = {
-  top: 0,
-  left: 0,
-  padding: "10px",
-};
-
-const fullscreenControlStyle = {
-  top: 36,
-  left: 0,
-  padding: "10px",
-};
-
-const navStyle = {
-  top: 72,
-  left: 0,
-  padding: "10px",
-};
-
-const scaleControlStyle = {
-  bottom: 36,
-  left: 0,
-  padding: "10px",
-};
-
 export default function Map(props) {
+  const history = useHistory();
+  const { data } = props;
   const [viewport, setViewport] = useState({
     latitude: 39,
     longitude: -96,
@@ -48,7 +17,17 @@ export default function Map(props) {
     bearing: 0,
     pitch: 0,
   });
-  const [popupInfo, setPopupInfo] = useState(null);
+
+  const setActiveTracker = (id) => {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("id") === id.toString()) {
+      history.push({ search: null });
+    } else {
+      const params = new URLSearchParams();
+      params.append("id", id);
+      history.push({ search: params.toString() });
+    }
+  };
 
   return (
     <>
@@ -60,25 +39,7 @@ export default function Map(props) {
         onViewportChange={setViewport}
         mapboxApiAccessToken={TOKEN}
       >
-        <Pins data={CITIES} onClick={setPopupInfo} />
-
-        {popupInfo && (
-          <Popup
-            tipSize={5}
-            anchor="top"
-            longitude={popupInfo.longitude}
-            latitude={popupInfo.latitude}
-            closeOnClick={false}
-            onClose={setPopupInfo}
-          >
-            <CityInfo info={popupInfo} />
-          </Popup>
-        )}
-
-        <GeolocateControl style={geolocateStyle} />
-        <FullscreenControl style={fullscreenControlStyle} />
-        <NavigationControl style={navStyle} />
-        <ScaleControl style={scaleControlStyle} />
+        <Pins data={data.all} onClick={setActiveTracker} />
       </MapGL>
     </>
   );

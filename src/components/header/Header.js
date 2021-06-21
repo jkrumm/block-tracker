@@ -18,16 +18,16 @@ export default function Header() {
           </Link>
           <Navbar.Divider />
           <Link to="/add">
-            <Button className="bp3-minimal" icon="add" text="Add Tracker" />
+            <Button className="bp3-minimal" icon="add" text="Neuer Tracker" />
           </Link>
-          <Navbar.Divider />
-          <Link to="/account">
-            <Button className="bp3-minimal" icon="person" text="Account" />
-          </Link>
-          <Navbar.Divider />
-          <Link to="/logout">
-            <Button className="bp3-minimal" icon="log-out" text="Logout" />
-          </Link>
+          {/*<Navbar.Divider />*/}
+          {/*<Link to="/account">*/}
+          {/*  <Button className="bp3-minimal" icon="person" text="Account" />*/}
+          {/*</Link>*/}
+          {/*<Navbar.Divider />*/}
+          {/*<Link to="/logout">*/}
+          {/*  <Button className="bp3-minimal" icon="log-out" text="Logout" />*/}
+          {/*</Link>*/}
         </Navbar.Group>
       </div>
     </Navbar>
